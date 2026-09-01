@@ -1,0 +1,2 @@
+def is_valid(isbn: str) -> bool:
+    return len(isbn := isbn.replace('-', '')) == 10 and (isbn[:9] + isbn[9].replace('X', '1')).isnumeric() and not sum(10 if num == 'X' else int(num) * (10 - index) for index, num in enumerate(isbn)) % 11
